@@ -1,0 +1,33 @@
+* {
+    font-family: 'Inconsolata', monospace;
+    font-family: 'Lilita One', cursive;
+    background-color: #FDDDE9;
+}
+
+
+header {
+    height: 20%;
+    
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #FEBFD7;
+    text-shadow: 1px 1px 0px #170a06;
+    padding-top: 2.5rem;
+    /* text-align: center; */
+    position: relative;
+    /* text-decoration: underline;
+    text-underline-position: under;  */
+}
+
+header h1::before {
+    content: "";
+    position: absolute;
+    right: -11%;
+    bottom: 0;
+    height: 1px;
+    width: 15rem;
+    border-bottom: 4px solid #FEBFD7;
+    box-shadow: 1.2px 1.8px 0px #170a06;
+}
