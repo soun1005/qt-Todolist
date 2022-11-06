@@ -1,9 +1,21 @@
+:root {
+    --main-pink: #FEBFD7;
+    --sub-pink: #FEB8D3;
+    --main-blue: #2196F3;
+    --sub-blue: #A1C7FF;
+    --white: #fff;
+}
+
 * {
     font-family: 'Inconsolata', monospace;
     font-family: 'Lilita One', cursive;
     background-color: #FDDDE9;
+    box-sizing: border-box;
+    margin: 0;
+
 }
 
+/* main color #FEB8D3 */
 
 header {
     height: 20%;
@@ -28,6 +40,47 @@ header h1::before {
     bottom: 0;
     height: 1px;
     width: 15rem;
-    border-bottom: 4px solid #FEBFD7;
-    box-shadow: 1.2px 1.8px 0px #170a06;
+    border-bottom: 4px solid var(--main-pink);
+    box-shadow: 1.2px 1.5px 0px #170a06;
+}
+
+
+.input-section {
+    position: fixed;
+    bottom: 0;
+    padding: 1.5rem 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main-input {
+    width: 269px;
+    height: 2.4rem;
+    border: 3.2px solid var(--main-pink);
+    background-color: var(--white);
+}
+
+#main-input::placeholder {
+    font-size: 19px;
+    padding-left: 6px;
+    color: var(--main-pink);
+}
+
+
+#main-input:focus::placeholder {
+    color: transparent;
+}
+
+.add-btn {
+    height: 4.2rem;
+    width: 4.2rem;
+    border-radius: 50%;
+    margin-left: 10px;
+    border: 4px var(--main-blue) solid;
+    color: var(--main-blue);
+    background-color: var(--sub-blue);
+    font-size: 1.4rem;
+    text-shadow: 1.7px 2.3px 0px #170a06;
 }
