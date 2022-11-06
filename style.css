@@ -9,10 +9,12 @@
 * {
     font-family: 'Inconsolata', monospace;
     font-family: 'Lilita One', cursive;
-    background-color: #FDDDE9;
     box-sizing: border-box;
     margin: 0;
+}
 
+body {
+    background-color: #FDDDE9;
 }
 
 /* main color #FEB8D3 */
@@ -48,7 +50,7 @@ header h1::before {
 .input-section {
     position: fixed;
     bottom: 0;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 2.5rem;
     width: 100%;
     display: flex;
     align-items: center;
@@ -83,4 +85,53 @@ header h1::before {
     background-color: var(--sub-blue);
     font-size: 1.4rem;
     text-shadow: 1.7px 2.3px 0px #170a06;
+}
+
+.list-section {
+    height: 73vh;
+    width: 100%;
+    overflow: auto;
+}
+
+/* to do list container */
+.list-container {
+    background-color: var(--main-pink);
+    min-height: 7.4rem;
+    width: 85%;
+    margin: 5px auto;
+    justify-content: space-between;
+    border-radius: 11px;
+    
+}
+
+/* to do list content div */
+
+.content-wrap {
+    padding: 12px;
+}
+
+.list-date {
+    font-family: 'Inconsolata', monospace;
+}
+
+.list-label {
+    font-family: 'Inconsolata', monospace;
+}
+
+/* edit section */
+.edit {
+    height: inherit;
+    width: 58px;
+    background-color: var(--sub-blue);
+    border-radius: 0 11px 11px 0;
+}
+
+/* icons */
+.edit span {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--main-blue);
 }

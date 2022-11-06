@@ -14,6 +14,18 @@ const mainBtn = document.querySelector('.add-btn');
 mainBtn.addEventListener('click', (e)=> {
     e.preventDefault();
 
+    // current date and time in France
+    let today = new Date().toLocaleString('fr-FR');
+    // let today = new Date();
+    // let dd = String(today.getDate()).padStart(2, '0');
+    // let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    // let yyyy = today.getFullYear();
+    // let time = new Date().toJSON();
+    // // .slice(12, 17);
+    // console.log(time)
+    // today = `${time}  ${dd}-${mm}-${yyyy}`;
+    // document.write(today);
+
     const todolistContent = mainInput.value;
     console.log(todolistContent);
 
@@ -27,6 +39,7 @@ mainBtn.addEventListener('click', (e)=> {
 
     const date = document.createElement('div');
     date.classList.add('list-date');
+    date.textContent = today;
 
     const label = document.createElement('span');
     label.classList.add('list-label');
