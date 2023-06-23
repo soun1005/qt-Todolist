@@ -5,12 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QT To do list</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-      crossorigin="anonymous"
-    />
     <script
       src="https://kit.fontawesome.com/b38e917b9e.js"
       crossorigin="anonymous"
@@ -22,29 +16,37 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/normalize.css" />
   </head>
   <body>
     <header>
-      <div
-        class="container d-flex flex-column justify-content-center align-items-center header-container"
-      >
+      <div class="headerWrap">
         <h1>To Do List</h1>
         <div class="underline"></div>
       </div>
     </header>
     <main>
-      <section class="list-section container d-flex flex-column-reverse">
-        <!-- added to do list -->
+      <section class="listSection">
+        <ul id="listContainer">
+          <!-- added to do list -->
+          <li class="listWrap">
+            <div class="contentWrap">
+              <img src="./circle.png" alt="circle" class="circleIcon" />
+              <div class="labelWrap">
+                <div class="listDate">2023/6/16</div>
+                <span class="listLabel">Hug Florian</span>
+              </div>
+            </div>
+            <div class="imageWrap">
+              <img src="./close.png" alt="close" class="closeIcon" />
+            </div>
+          </li>
+        </ul>
       </section>
-      <div class="input-section">
-        <input
-          type="text"
-          id="main-input"
-          class="col col-md-4"
-          placeholder="type here"
-        />
-        <button class="add-btn">add</button>
-      </div>
+      <form class="inputSection">
+        <input type="text" id="mainInput" placeholder="type here" required />
+        <button class="addBtn">add</button>
+      </form>
     </main>
     <script src="/script.js"></script>
   </body>

@@ -1,68 +1,82 @@
-// section
-const listSection = document.querySelector('.list-section');
+// // section
+// const listSection = document.querySelector('.list-section');
 
+// ul container
+const listContainer = document.getElementById('listContainer');
 
 // input
-const mainInput = document.getElementById('main-input');
+const mainInput = document.getElementById('mainInput');
 
+// // button
+const mainBtn = document.querySelector('.addBtn');
 
-// button
-const mainBtn = document.querySelector('.add-btn');
+// current date and time in France to display posted time
+let today = new Date().toLocaleString('fr-FR');
 
+let taskArray = [];
 
+const addTask = (e) => {
+  e.preventDefault();
 
-mainBtn.addEventListener('click', (e)=> {
-    e.preventDefault();
+  const inputValue = mainInput.value;
 
-    // current date and time in France
-    let today = new Date().toLocaleString('fr-FR');
-    // let today = new Date();
-    // let dd = String(today.getDate()).padStart(2, '0');
-    // let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    // let yyyy = today.getFullYear();
-    // let time = new Date().toJSON();
-    // // .slice(12, 17);
-    // console.log(time)
-    // today = `${time}  ${dd}-${mm}-${yyyy}`;
-    // document.write(today);
+  if (inputValue === '') {
+    alert('Write something');
+  } else {
+    // put values in an array
+    taskArray.push(inputValue);
+    console.log(taskArray);
 
-    const todolistContent = mainInput.value;
-    console.log(todolistContent);
+    // <li class="listWrap">
+    const listWrap = document.createElement('li');
+    listWrap.classList.add('listWrap');
 
-    const listContainer = document.createElement('div');
-    listContainer.classList.add('list-container', 'd-flex');
-
-    
-    // contentwrap has date, label div
+    // <div class="contentWrap">
     const contentWrap = document.createElement('div');
-    contentWrap.classList.add('content-wrap', 'd-flex', 'flex-column');
+    contentWrap.classList.add('contentWrap');
 
-    const date = document.createElement('div');
-    date.classList.add('list-date');
-    date.textContent = today;
+    //  <img src="./circle.png" alt="circle" class="circleIcon" />
+    const circleIcon = document.createElement('img');
+    circleIcon.classList.add('circleIcon');
+    circleIcon.setAttribute('src', './circle.png');
+    circleIcon.setAttribute('alt', 'circle');
 
-    const label = document.createElement('span');
-    label.classList.add('list-label');
-    label.textContent = todolistContent;
+    //  <div class="labelWrap">
+    const labelWrap = document.createElement('div');
+    labelWrap.classList.add('labelWrap');
 
+    contentWrap.append(circleIcon);
+    contentWrap.append(labelWrap);
 
-    contentWrap.append(date);
-    contentWrap.append(label);
+    // <span class="listDate">2023/6/16</span>
+    // <span class="listLabel">Hug Florian</span>
+    const listDate = document.createElement('span');
+    listDate.classList.add('listDate');
+    listDate.textContent = today;
+    const listLabel = document.createElement('span');
+    listLabel.classList.add('listLabel');
+    listLabel.textContent = inputValue;
 
-    // edit div has two icons
-    const editDiv = document.createElement('div');
-    editDiv.classList.add('edit', 'd-flex', 'flex-column');
-    const editIcon = document.createElement('span');
-    editIcon.classList.add('fa-solid', 'fa-pencil')
-    const confirmIcon = document.createElement('span');
-    confirmIcon.classList.add('fa-sharp', 'fa-solid', 'fa-circle-check')
-    editDiv.append(editIcon);
-    editDiv.append(confirmIcon);
+    labelWrap.append(listDate);
+    labelWrap.append(listLabel);
 
-    // list container append two divs
-    listContainer.append(contentWrap);
-    listContainer.append(editDiv);
-    listSection.append(listContainer);
+    //   <div class="imageWrap">
+    //   <img src="./close.png" alt="close" class="closeIcon" />
+    // </div>
+    const imageWrap = document.createElement('div');
+    imageWrap.classList.add('imageWrap');
+    const closeIcon = document.createElement('img');
+    closeIcon.classList.add('closeIcon');
+    closeIcon.setAttribute('src', './close.png');
+    closeIcon.setAttribute('alt', 'close');
+    imageWrap.append(closeIcon);
 
-    mainInput.value = '';
-});
+    listContainer.append(listWrap);
+    listWrap.append(contentWrap);
+    listWrap.append(imageWrap);
+  }
+
+  mainInput.value = '';
+};
+
+mainBtn.addEventListener('click', addTask);

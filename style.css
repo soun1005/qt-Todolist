@@ -1,137 +1,141 @@
 :root {
-    --main-pink: #FEBFD7;
-    --sub-pink: #FEB8D3;
-    --main-blue: #2196F3;
-    --sub-blue: #A1C7FF;
-    --white: #fff;
+  --main-pink: #febfd7;
+  --sub-pink: #feb8d3;
+  --main-blue: #2196f3;
+  --sub-blue: #a1c7ff;
+  --white: #fff;
 }
 
 * {
-    font-family: 'Inconsolata', monospace;
-    font-family: 'Lilita One', cursive;
-    box-sizing: border-box;
-    margin: 0;
+  font-family: 'Inconsolata', monospace;
+  font-family: 'Lilita One', cursive;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 body {
-    background-color: #FDDDE9;
+  background-color: #fddde9;
+  height: 100vh;
 }
 
-/* main color #FEB8D3 */
-
 header {
-    height: 20%;
-    
+  height: 15%;
+}
+
+.headerWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header h1 {
-    font-size: 3rem;
-    color: #FEBFD7;
-    text-shadow: 1px 1px 0px #170a06;
-    padding-top: 2.5rem;
-    /* text-align: center; */
-    position: relative;
-    /* text-decoration: underline;
-    text-underline-position: under;  */
+  font-size: 3rem;
+  color: #febfd7;
+  text-shadow: 1px 1px 0px #170a06;
+  padding-top: 2.5rem;
+  position: relative;
 }
 
 header h1::before {
-    content: "";
-    position: absolute;
-    right: -11%;
-    bottom: 0;
-    height: 1px;
-    width: 15rem;
-    border-bottom: 4px solid var(--main-pink);
-    box-shadow: 1.2px 1.5px 0px #170a06;
+  content: '';
+  position: absolute;
+  right: -11%;
+  bottom: 0;
+  height: 1px;
+  width: 15rem;
+  border-bottom: 4px solid var(--main-pink);
+  box-shadow: 1.2px 1.5px 0px #170a06;
 }
 
-
-.input-section {
-    position: fixed;
-    bottom: 0;
-    padding: 1.5rem 2.5rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.inputSection {
+  position: fixed;
+  bottom: 0;
+  padding: 1.5rem 2.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#main-input {
-    width: 269px;
-    height: 2.4rem;
-    border: 3.2px solid var(--main-pink);
-    background-color: var(--white);
+#mainInput {
+  width: 269px;
+  height: 2.4rem;
+  border: 3.2px solid var(--main-pink);
+  background-color: var(--white);
 }
 
-#main-input::placeholder {
-    font-size: 19px;
-    padding-left: 6px;
-    color: var(--main-pink);
+#mainInput::placeholder {
+  font-size: 19px;
+  padding-left: 6px;
+  color: var(--main-pink);
 }
 
-
-#main-input:focus::placeholder {
-    color: transparent;
+#mainInput:focus::placeholder {
+  color: transparent;
 }
 
-.add-btn {
-    height: 4.2rem;
-    width: 4.2rem;
-    border-radius: 50%;
-    margin-left: 10px;
-    border: 4px var(--main-blue) solid;
-    color: var(--main-blue);
-    background-color: var(--sub-blue);
-    font-size: 1.4rem;
-    text-shadow: 1.7px 2.3px 0px #170a06;
+.addBtn {
+  height: 4.2rem;
+  width: 4.2rem;
+  border-radius: 50%;
+  margin-left: 10px;
+  border: 3px var(--main-blue) solid;
+  color: var(--main-blue);
+  background-color: var(--sub-blue);
+  font-size: 1.4rem;
+  text-shadow: 1.7px 2.3px 0px #170a06;
 }
 
-.list-section {
-    height: 73vh;
-    width: 100%;
-    overflow: auto;
+.listSection {
+  height: 73vh;
+  width: 100%;
+  overflow: auto;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 /* to do list container */
-.list-container {
-    background-color: var(--main-pink);
-    min-height: 7.4rem;
-    width: 85%;
-    margin: 5px auto;
-    justify-content: space-between;
-    border-radius: 11px;
-    
+.listWrap {
+  background-color: var(--main-pink);
+  width: 80%;
+  margin: 5px auto;
+  justify-content: space-between;
+  border-radius: 11px;
+  display: flex;
+  flex-direction: row;
 }
 
 /* to do list content div */
 
-.content-wrap {
-    padding: 12px;
+.contentWrap {
+  padding: 12px;
+  display: flex;
+  align-items: center;
 }
 
-.list-date {
-    font-family: 'Inconsolata', monospace;
+.labelWrap {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
 }
 
-.list-label {
-    font-family: 'Inconsolata', monospace;
+.listDate,
+.listLabel {
+  font-family: 'Inconsolata', monospace;
 }
 
-/* edit section */
-.edit {
-    height: inherit;
-    width: 58px;
-    background-color: var(--sub-blue);
-    border-radius: 0 11px 11px 0;
+.imageWrap {
+  display: flex;
+  flex-direction: column;
+  width: 4rem;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 5px;
 }
 
-/* icons */
-.edit span {
-    height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: var(--main-blue);
+.circleIcon,
+.closeIcon {
+  width: 25px;
+  height: fit-content;
 }
