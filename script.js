@@ -1,6 +1,3 @@
-// // section
-// const listSection = document.querySelector('.list-section');
-
 // ul container
 const listContainer = document.getElementById('listContainer');
 
@@ -69,14 +66,61 @@ const addTask = (e) => {
     closeIcon.classList.add('closeIcon');
     closeIcon.setAttribute('src', './close.png');
     closeIcon.setAttribute('alt', 'close');
+
+    closeIcon.addEventListener('click', () => {
+      listWrap.remove();
+    });
+
     imageWrap.append(closeIcon);
+
+    listWrap.addEventListener('click', (event) => {
+      listLabel.classList.toggle('checked');
+    });
 
     listContainer.append(listWrap);
     listWrap.append(contentWrap);
     listWrap.append(imageWrap);
+
+    // const listTags = document.querySelectorAll('.listLabel');
+    // console.log(listTags);
   }
 
   mainInput.value = '';
 };
 
 mainBtn.addEventListener('click', addTask);
+
+// listContainer.addEventListener(
+//   'click',
+//   function (e) {
+//     e.preventDefault();
+//     const listContainer = document.getElementById('listContainer');
+//     const listLabel = document.querySelectorAll('.listLabel');
+
+//     // console.log(contentWrap);
+
+//     const target = e.target;
+//     // console.log(target.parentElement.parentElement);
+
+//     if (target.tagName === 'LI') {
+//       target.children[0].children[1].children[1].classList.toggle('checked');
+//     } else if (target.classList.contains('closeIcon')) {
+//       target.parentElement.parentElement.remove();
+//       console.log(target.parentElement.parentElement);
+//     }
+//   },
+//   false
+// );
+
+const contentWrapList = document.querySelectorAll('.contentWrap');
+contentWrapList.forEach(function (contentWrap) {
+  contentWrap.addEventListener('click', function (e) {
+    const target = e.target;
+    console.log(target);
+
+    // target.children[1].children[1].classList.toggle('checked');
+  });
+});
+
+// const target = e.target;
+// target.children[1].children[1].classList.toggle('checked');
