@@ -105,6 +105,7 @@ header h1::before {
   display: flex;
   flex-direction: row;
   cursor: pointer;
+  position: relative;
 }
 
 /* to do list content div */
@@ -113,6 +114,23 @@ header h1::before {
   padding: 12px;
   display: flex;
   align-items: center;
+  margin-left: 1.5rem;
+}
+
+.contentWrap::before {
+  content: '';
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-image: url(/circle.png);
+  background-size: cover;
+  background-position: center;
+  left: 1rem;
+}
+
+.contentWrap.checked::before {
+  background-image: url(/checked.png);
 }
 
 .labelWrap {

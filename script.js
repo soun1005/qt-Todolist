@@ -33,16 +33,16 @@ const addTask = (e) => {
     contentWrap.classList.add('contentWrap');
 
     //  <img src="./circle.png" alt="circle" class="circleIcon" />
-    const circleIcon = document.createElement('img');
-    circleIcon.classList.add('circleIcon');
-    circleIcon.setAttribute('src', './circle.png');
-    circleIcon.setAttribute('alt', 'circle');
+    // const circleIcon = document.createElement('img');
+    // circleIcon.classList.add('circleIcon');
+    // circleIcon.setAttribute('src', './circle.png');
+    // circleIcon.setAttribute('alt', 'circle');
 
     //  <div class="labelWrap">
     const labelWrap = document.createElement('div');
     labelWrap.classList.add('labelWrap');
 
-    contentWrap.append(circleIcon);
+    // contentWrap.append(circleIcon);
     contentWrap.append(labelWrap);
 
     // <span class="listDate">2023/6/16</span>
@@ -75,6 +75,7 @@ const addTask = (e) => {
 
     listWrap.addEventListener('click', (event) => {
       listLabel.classList.toggle('checked');
+      contentWrap.classList.toggle('checked');
     });
 
     listContainer.append(listWrap);
@@ -124,3 +125,11 @@ contentWrapList.forEach(function (contentWrap) {
 
 // const target = e.target;
 // target.children[1].children[1].classList.toggle('checked');
+
+const saveData = () => {
+  localStorage.setItem('data', listContainer.innerHTML);
+};
+
+const showTask = () => {
+  listContainer.innerHTML = localStorage.getItem('data');
+};
