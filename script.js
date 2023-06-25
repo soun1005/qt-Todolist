@@ -108,6 +108,7 @@ function showTask() {
       listWrap.addEventListener('click', (event) => {
         listLabel.classList.toggle('checked');
         contentWrap.classList.toggle('checked');
+        saveData();
       });
     });
   }
