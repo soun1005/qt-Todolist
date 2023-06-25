@@ -1,8 +1,8 @@
 :root {
-  --main-pink: #febfd7;
-  --sub-pink: #feb8d3;
-  --main-blue: #2196f3;
-  --sub-blue: #a1c7ff;
+  --main-pink: #fad4e3;
+  --sub-pink: #fce2ec;
+  --main-blue: #74cefb;
+  --sub-blue: #b0e3fc;
   --white: #fff;
 }
 
@@ -14,7 +14,7 @@
 }
 
 body {
-  background-color: #fddde9;
+  background-color: var(--sub-pink);
   height: 100vh;
 }
 
@@ -26,11 +26,12 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 10vh;
 }
 
 header h1 {
   font-size: 3rem;
-  color: #febfd7;
+  color: var(--main-pink);
   text-shadow: 1px 1px 0px #170a06;
   padding-top: 2.5rem;
   position: relative;
@@ -50,11 +51,11 @@ header h1::before {
 .inputSection {
   position: fixed;
   bottom: 0;
-  padding: 1.5rem 2.5rem;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 20vh;
 }
 
 #mainInput {
@@ -81,16 +82,14 @@ header h1::before {
   margin-left: 10px;
   border: 3px var(--main-blue) solid;
   color: var(--main-blue);
-  background-color: var(--sub-blue);
   font-size: 1.4rem;
   text-shadow: 1.7px 2.3px 0px #170a06;
 }
 
 .listSection {
-  height: 73vh;
+  height: 65vh;
   width: 100%;
   overflow: auto;
-  /* background-color: red; */
   display: flex;
   flex-direction: column-reverse;
 }
@@ -106,6 +105,13 @@ header h1::before {
   flex-direction: row;
   cursor: pointer;
   position: relative;
+  transition: all 0.3s;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.listWrap:active {
+  background-color: #74cefb;
 }
 
 /* to do list content div */
@@ -157,10 +163,12 @@ header h1::before {
   justify-content: space-evenly;
   padding: 5px;
   border-radius: 50%;
+  transition: all 0.4s;
 }
 
 .imageWrap:hover {
-  background-color: #d7d6d6;
+  background-color: var(--sub-blue);
+  transition: all 0.4s;
 }
 
 .circleIcon,
@@ -174,6 +182,7 @@ header h1::before {
 .closeIcon:hover {
   transform: scale(1.2);
   transition: 0.3s;
+  transform: rotate(90deg);
 }
 
 @media (max-width: 600px) {
@@ -186,11 +195,17 @@ header h1::before {
     height: 1px;
     width: 10rem;
   }
+  #mainInput {
+    max-width: 12rem;
+  }
   .addBtn {
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
     margin-left: 15px;
     font-size: 1rem;
+  }
+  .inputSection {
+    padding: 0 1rem;
   }
 }
