@@ -10,7 +10,7 @@ const mainBtn = document.querySelector('.addBtn');
 // current date and time in France to display posted time
 let today = new Date().toLocaleString('fr-FR');
 
-let taskArray = [];
+// let taskArray = [];
 
 const addTask = (e) => {
   e.preventDefault();
@@ -20,10 +20,6 @@ const addTask = (e) => {
   if (inputValue === '') {
     alert('Write something');
   } else {
-    // put values in an array
-    taskArray.push(inputValue);
-    console.log(taskArray);
-
     // <li class="listWrap">
     const listWrap = document.createElement('li');
     listWrap.classList.add('listWrap');
@@ -69,6 +65,7 @@ const addTask = (e) => {
 
     closeIcon.addEventListener('click', () => {
       listWrap.remove();
+      saveData();
     });
 
     imageWrap.append(closeIcon);
@@ -76,16 +73,14 @@ const addTask = (e) => {
     listWrap.addEventListener('click', (event) => {
       listLabel.classList.toggle('checked');
       contentWrap.classList.toggle('checked');
+      saveData();
     });
 
     listContainer.append(listWrap);
     listWrap.append(contentWrap);
     listWrap.append(imageWrap);
-
-    // const listTags = document.querySelectorAll('.listLabel');
-    // console.log(listTags);
+    saveData();
   }
-
   mainInput.value = '';
 };
 
@@ -95,33 +90,32 @@ mainBtn.addEventListener('click', addTask);
 //   'click',
 //   function (e) {
 //     e.preventDefault();
-//     const listContainer = document.getElementById('listContainer');
-//     const listLabel = document.querySelectorAll('.listLabel');
-
-//     // console.log(contentWrap);
+//     // const listContainer = document.getElementById('listContainer');
+//     // const listLabel = document.querySelectorAll('.listLabel');
 
 //     const target = e.target;
 //     // console.log(target.parentElement.parentElement);
 
 //     if (target.tagName === 'LI') {
-//       target.children[0].children[1].children[1].classList.toggle('checked');
+//       // target.children[0].children[1].children[1].classList.toggle('checked');
+//       console.log(target);
 //     } else if (target.classList.contains('closeIcon')) {
 //       target.parentElement.parentElement.remove();
 //       console.log(target.parentElement.parentElement);
 //     }
 //   },
-//   false
+//   true
 // );
 
-const contentWrapList = document.querySelectorAll('.contentWrap');
-contentWrapList.forEach(function (contentWrap) {
-  contentWrap.addEventListener('click', function (e) {
-    const target = e.target;
-    console.log(target);
+// const contentWrapList = document.querySelectorAll('.contentWrap');
+// contentWrapList.forEach(function (contentWrap) {
+//   contentWrap.addEventListener('click', function (e) {
+//     const target = e.target;
+//     console.log(target);
 
-    // target.children[1].children[1].classList.toggle('checked');
-  });
-});
+//     // target.children[1].children[1].classList.toggle('checked');
+//   });
+// });
 
 // const target = e.target;
 // target.children[1].children[1].classList.toggle('checked');
@@ -133,3 +127,5 @@ const saveData = () => {
 const showTask = () => {
   listContainer.innerHTML = localStorage.getItem('data');
 };
+
+showTask();
