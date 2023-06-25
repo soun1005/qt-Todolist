@@ -84,6 +84,9 @@ header h1::before {
   color: var(--main-blue);
   font-size: 1.4rem;
   text-shadow: 1.7px 2.3px 0px #170a06;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .listSection {
@@ -199,11 +202,11 @@ header h1::before {
     max-width: 12rem;
   }
   .addBtn {
-    height: 3rem;
-    width: 3rem;
+    height: 3.5rem;
+    width: 3.5rem;
     border-radius: 50%;
     margin-left: 15px;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   .inputSection {
     padding: 0 1rem;
